@@ -1,3 +1,3 @@
-export const home ={
-    template: `<h1>Home</h1>`
+export default {
+    template: `<h1>home</h1>`
 }

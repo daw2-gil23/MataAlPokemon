@@ -2,14 +2,19 @@
 // Import our custom CSS
 import './scss/styles.scss'
 
-// Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
-
-import { footer } from "./componentes/footer";
-import { header } from "./componentes/header";
-import { home } from "./vistas/home";
+import { header } from './componentes/header'
+import { enrutador } from './componentes/enrutador'
 
 
-document.querySelector('main').innerHTML = home.template
+// Importamos el componente por defecto
+const componenteHome = await import('./vistas/home')
+// Extraemos el objeto
+const homeVista = componenteHome.default
+// Inyectamos el componente header
 document.querySelector('header').innerHTML = header.template
-document.querySelector('footer').innerHTML = footer.template
+header.script()
+
+
+enrutador.observadorRutas()
+// Cargamos la página home
+window.location = '#/home'
